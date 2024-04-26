@@ -1,0 +1,9 @@
+query GetInvoice($businessId: ID!, $invoiceId: ID!) {
+  business(id: $businessId) {
+    invoice(id: $invoiceId) {
+      amountDue {
+        value
+      }
+    }
+  }
+}

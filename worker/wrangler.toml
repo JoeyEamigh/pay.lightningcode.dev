@@ -1,0 +1,14 @@
+name = "api-pay-lightningcode-dev"
+main = "build/worker/shim.mjs"
+compatibility_date = "2023-12-01"
+
+[build]
+command = "cargo install -q worker-build && worker-build --release"
+
+[env.dev]
+build = { command = "cargo install -q worker-build && worker-build --dev" }
+
+[dev]
+ip = "127.0.0.1"
+port = 8787
+local_protocol = "http"

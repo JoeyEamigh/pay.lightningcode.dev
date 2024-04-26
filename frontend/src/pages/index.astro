@@ -1,0 +1,50 @@
+---
+import PaymentOptionCard, { type PaymentOption } from '../components/PaymentOptionCard.astro';
+import Layout from '../layouts/Layout.astro';
+
+const option: PaymentOption[] = [
+  {
+    name: 'Manual ACH Transfer',
+    href: '/manual/',
+    fee: 'Free',
+    description: 'We provide the bank account information for you to transfer funds to.',
+    pros: ["Pay only your bank's fees."],
+    cons: [
+      'Having to manually transfer funds from your bank account.',
+      'Manually contacting LightningCode for the transfer info.',
+    ],
+  },
+  {
+    name: 'ACH Transfer',
+    href: '/ach/',
+    fee: 'FREE!',
+    description: 'You link your bank account to Stripe and authorize the payment.',
+    pros: ['Everything'],
+    cons: ['None!'],
+  },
+  {
+    name: 'Credit Card',
+    href: '/card/',
+    fee: '2.9% + 30¢',
+    description: 'Pay with a credit card and pay the fees - if you are in to that sort of thing.',
+    pros: ['Credit card points?'],
+    cons: ["Lots o' Fees"],
+  },
+];
+
+const meta = {
+  title: 'Payment Portal',
+  description: 'Choose the best payment method for your needs.',
+};
+---
+
+<Layout {...meta}>
+  <section class="flex justify-center">
+    <div
+      class="space-y-4 px-4 sm:grid sm:grid-cols-2 sm:gap-6 sm:space-y-0 lg:mx-auto lg:max-w-4xl xl:mx-0 xl:grid-cols-3">
+      {option.map(o => <PaymentOptionCard option={o} />)}
+    </div>
+  </section>
+</Layout>
+
+<style></style>

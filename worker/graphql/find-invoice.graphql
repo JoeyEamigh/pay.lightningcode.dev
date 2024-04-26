@@ -1,0 +1,19 @@
+query FindInvoice($businessId: ID!, $invoiceNumber: String!) {
+  business(id: $businessId) {
+    invoices(invoiceNumber: $invoiceNumber) {
+      edges {
+        node {
+          id
+          pdfUrl
+          invoiceNumber
+          customer {
+            name
+          }
+          amountDue {
+            value
+          }
+        }
+      }
+    }
+  }
+}

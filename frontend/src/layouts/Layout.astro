@@ -1,0 +1,75 @@
+---
+import Logo from '../components/Logo.astro';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title: passedTitle, description } = Astro.props;
+const title = passedTitle ? `${passedTitle} | LightningCode Pay` : `LightningCode Pay`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/ico" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+
+    <!-- scripts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main>
+      <!-- persistent header -->
+      <section class="mx-auto max-w-3xl p-8">
+        <Logo />
+      </section>
+
+      <!-- page data -->
+      <section class="mb-8">
+        <h1 class="text-center text-5xl font-bold tracking-tight text-gray-50">{passedTitle}</h1>
+        <p class="mt-5 text-center text-xl text-gray-200">{description}</p>
+      </section>
+
+      <!-- dynamic data -->
+      <slot />
+    </main>
+  </body>
+</html>
+<style is:global>
+  html,
+  body {
+    @apply bg-gray-800 text-white;
+    font-family: 'Inter', sans-serif;
+    height: 100%;
+
+    & > main {
+      flex: 1 1 auto;
+      flex-shrink: 0;
+      min-height: 100%;
+    }
+  }
+
+  img {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+  }
+</style>

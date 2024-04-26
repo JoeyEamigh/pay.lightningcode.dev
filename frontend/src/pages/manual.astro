@@ -1,0 +1,23 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const meta = {
+  title: 'Manual Payment',
+  description: 'Instructions on how to perform a manual payment to LightningCode.',
+};
+---
+
+<Layout {...meta}>
+  <section class="mx-auto max-w-lg px-4 text-center">
+    <p>
+      Please email{' '}
+      <a href="mailto:joey@lightningcode.dev" class="text-gray-300 hover:text-gray-200 hover:underline">
+        joey@lightningcode.dev
+      </a>{' '}
+      for the account and routing information. If you would like to pay using an automated process, please go back to the{
+        ' '
+      }
+      <a class="text-gray-300 hover:text-gray-200 hover:underline" href="/">home page</a>.
+    </p>
+  </section>
+</Layout>

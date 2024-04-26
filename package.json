@@ -1,0 +1,24 @@
+{
+  "name": "pay.lightningcode.dev",
+  "module": "index.ts",
+  "type": "module",
+  "workspaces": [
+    "frontend",
+    "worker"
+  ],
+  "scripts": {
+    "dev": "bun run --filter='*' dev",
+    "build": "bun run --filter='*' build",
+    "deploy": "bun run --filter='*' deploy"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "prettier-plugin-astro": "^0.13.0",
+    "prettier-plugin-organize-imports": "^3.2.4",
+    "prettier-plugin-tailwindcss": "^0.5.13"
+  },
+  "peerDependencies": {
+    "typescript": "^5.4.5"
+  },
+  "packageManager": "bun@1.1.4"
+}
